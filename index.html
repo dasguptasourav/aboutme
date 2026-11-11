@@ -76,7 +76,7 @@
   /* Hero */
   .hero{padding:92px 32px 68px;}
   @media (max-width:640px){ .hero{padding-left:20px; padding-right:20px;} }
-  .hero-greeting{font-family:var(--serif); font-weight:500; font-size:clamp(1.9rem,3.6vw,2.9rem); color:var(--ink); margin:0 0 14px; line-height:1.15;}
+  .hero-greeting{font-family:var(--serif); font-weight:500; font-size:clamp(2.6rem,5.6vw,4.4rem); color:var(--ink); margin:0 0 22px; line-height:1.08; letter-spacing:-0.015em;}
   .hero-greeting .accent-name{color:var(--brass-deep); font-style:italic;}
   .hero h1{font-family:var(--serif); font-weight:500; font-size:clamp(2.1rem,4.6vw,3.5rem); line-height:1.12; max-width:22ch; margin:0 0 26px; letter-spacing:-0.01em;}
   .hero .lede{max-width:64ch; font-size:1.1rem; color:var(--ink-soft); margin:0 0 30px;}
@@ -732,6 +732,16 @@
     .zz-org{font-size:1.2rem;}
   }
   @media (prefers-reduced-motion: reduce){ .zz-more{transition:none;} }
+
+  /* Hero: two lenses */
+  .lens{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line); margin:4px 0 30px;}
+  .lens-col{padding:24px 32px 4px 0;}
+  .lens-col + .lens-col{padding-left:32px; padding-right:0; border-left:1px solid var(--line);}
+  .lens-k{font-family:var(--mono); font-size:0.76rem; letter-spacing:.08em;}
+  .lens-a .lens-k{color:#8A4F6B;} .lens-b .lens-k{color:var(--teal);}
+  .hero .lens-h{font-family:var(--serif); font-weight:500; font-size:clamp(1.5rem,2.7vw,2.1rem); line-height:1.18; letter-spacing:-0.01em; margin:8px 0 0; max-width:none; color:var(--ink);}
+  .lens-who{font-size:0.88rem; color:var(--ink-soft); margin-top:12px;}
+  @media (max-width:720px){ .hero .lens-h{font-size:1.4rem;} .lens{grid-template-columns:1fr;} .lens-col{padding-right:0;} .lens-col + .lens-col{padding-left:0; border-left:none; border-top:1px solid var(--line); margin-top:20px;} }
 </style>
 <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -759,8 +769,11 @@
 
 <section class="hero wrap" id="about">
   <div class="hero-greeting">G&rsquo;day, I'm <span class="accent-name">Sourav</span>.</div>
-  <h1>I build the analytics capabilities, teams, products and services that turn data into decisions, and decisions into results.</h1>
-  <p class="lede">Over twenty years across Consulting (Accenture, Capgemini), Financial Services (Westpac, Humm) and Technology (Atlassian). I have worked across the whole data chain, the end-to-end architecture from ingestion through to self-serve and automation, and I add the most value towards the right of it, where data turns into power.</p>
+  <div class="lens">
+    <div class="lens-col lens-a"><div class="lens-k">I ADVISE</div><h1 class="lens-h">Executives and senior leaders transforming their businesses through AI governance, decision intelligence and information maturity.</h1><div class="lens-who">Advisory for founders and senior leaders</div></div>
+    <div class="lens-col lens-b"><div class="lens-k">I BUILD</div><p class="lens-h">The analytics capabilities, teams, products and services that turn data into decisions, and decisions into results.</p><div class="lens-who">Business Intelligence, Governance, Analytics and Data Science</div></div>
+  </div>
+  <p class="lede">My experience spans over two decades of delivery, consultation and advisory services across Technology (Atlassian), Consulting (Accenture, Capgemini) and Financial Services (Westpac, Humm). I have built information architecture across the entire data chain, and have transformed data into narratives through analytics and insights for my clients across sectors and geographies. I am a GAICD, an MBA and a startup advisor.</p>
 </section>
 
 <!-- EXPERIENCE -->
