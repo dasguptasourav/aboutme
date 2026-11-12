@@ -245,9 +245,10 @@
   .cred-columns li{font-size:0.92rem; color:var(--ink-soft);}
 
   /* By the numbers */
-  .num-grid{display:grid; grid-template-columns:1fr 1fr 1fr; column-gap:36px; row-gap:36px; margin-top:8px;}
-  @media (max-width:760px){ .num-grid{grid-template-columns:1fr 1fr;} }
-  @media (max-width:480px){ .num-grid{grid-template-columns:1fr;} }
+  .num-grid{display:flex; flex-wrap:wrap; justify-content:center; column-gap:32px; row-gap:36px; margin-top:8px;}
+  .num-grid > .num-cell{flex:0 0 calc((100% - 96px) / 4);}
+  @media (max-width:1000px){ .num-grid > .num-cell{flex-basis:calc((100% - 32px) / 2);} }
+  @media (max-width:480px){ .num-grid > .num-cell{flex-basis:100%;} }
   .num-cell{border-top:2px solid var(--brass); padding-top:16px;}
   .num-cell .num{font-family:var(--serif); font-weight:600; color:var(--brass-deep); font-size:2.4rem; line-height:1; margin-bottom:8px;}
   .num-cell .label{font-size:0.92rem; color:var(--ink-soft);}
@@ -742,6 +743,47 @@
   .hero .lens-h{font-family:var(--serif); font-weight:500; font-size:clamp(1.5rem,2.7vw,2.1rem); line-height:1.18; letter-spacing:-0.01em; margin:8px 0 0; max-width:none; color:var(--ink);}
   .lens-who{font-size:0.88rem; color:var(--ink-soft); margin-top:12px;}
   @media (max-width:720px){ .hero .lens-h{font-size:1.4rem;} .lens{grid-template-columns:1fr;} .lens-col{padding-right:0;} .lens-col + .lens-col{padding-left:0; border-left:none; border-top:1px solid var(--line); margin-top:20px;} }
+
+  .zz-cl{margin-top:12px;}
+  .zz-clk{font-family:var(--mono); font-size:0.72rem; color:var(--c); letter-spacing:.04em; margin-bottom:8px;}
+  .zz-in ul.zz-chips{list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:6px;}
+  .zz-in .zz-chip{margin:0; font-size:0.78rem; line-height:1.3; border:1px solid var(--line); border-left:3px solid var(--c); border-radius:4px; padding:4px 8px; background:var(--paper); display:flex; gap:6px; align-items:baseline;}
+  .zz-chip b{font-weight:500; color:var(--ink);}
+  .zz-chip span{font-family:var(--mono); font-size:0.66rem; color:var(--ink-soft);}
+  .zz-cc{color:var(--ink-soft);}
+
+  .xp-steps{display:flex; flex-direction:column; gap:2px; margin:6px 0 6px; padding-left:12px; border-left:2px solid var(--c);}
+  .xp-steps i{font-style:normal; font-family:var(--mono); font-size:0.68rem; color:var(--ink-soft); white-space:nowrap;}
+  .xp-steps i:last-child{color:var(--c); font-weight:500;}
+  .xp-ldesc{display:block; font-size:0.8rem; color:var(--ink-soft); line-height:1.45;}
+
+  .xv-list{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px;}
+  @media (max-width:640px){ .xv-list{grid-template-columns:1fr;} }
+  .xv-card{background:var(--paper); border:1px solid var(--line); border-left:3px solid var(--c); border-radius:6px; padding:12px 14px 10px;}
+  .xv-yr{font-family:var(--mono); font-size:0.7rem; color:var(--c); letter-spacing:.03em;}
+  .xv-role{font-weight:500; font-size:0.95rem; line-height:1.35; margin:2px 0 2px;}
+  .xv-org{font-size:0.8rem; color:var(--ink-soft);}
+  .xv-desc{font-size:0.82rem; color:var(--ink-soft); line-height:1.5; margin:6px 0 0;}
+  .xv-card .xp-steps{margin:8px 0 2px;}
+
+  .cv-hint{font-family:var(--mono); font-size:0.74rem; color:var(--ink-soft); margin:-8px 0 14px;}
+  .cv-grid{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px;}
+  @media (max-width:900px){ .cv-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media (max-width:420px){ .cv-grid{grid-template-columns:1fr;} }
+  .cv-card{perspective:1000px; cursor:pointer; outline:none; border-radius:10px;}
+  .cv-card:focus-visible{box-shadow:0 0 0 3px var(--c);}
+  .cv-in{display:grid; height:100%; transform-style:preserve-3d; transition:transform .6s cubic-bezier(.3,.7,.2,1);}
+  .cv-f, .cv-b{grid-area:1/1; backface-visibility:hidden; -webkit-backface-visibility:hidden; border:1px solid var(--line); border-top:3px solid var(--c); border-radius:10px; padding:14px 14px 12px; min-height:190px;}
+  .cv-f{background:var(--paper); display:flex; flex-direction:column; gap:3px;}
+  .cv-b{background:#fff; transform:rotateY(180deg);}
+  .cv-card.flipped .cv-in{transform:rotateY(180deg);}
+  @media (hover:hover){ .cv-card:hover .cv-in, .cv-card:focus-visible .cv-in{transform:rotateY(180deg);} }
+  .cv-ic{width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:var(--c); background:color-mix(in srgb, var(--c) 12%, transparent); margin-bottom:6px;}
+  .cv-ic svg{width:20px; height:20px;}
+  .cv-cause{margin-top:auto; padding-top:8px; font-family:var(--mono); font-size:0.66rem; color:var(--c);}
+  .cv-bt{font-weight:500; font-size:0.86rem; color:var(--c); line-height:1.3;}
+  .cv-b .xv-desc{font-size:0.8rem;}
+  @media (prefers-reduced-motion: reduce){ .cv-in{transition:none;} }
 </style>
 <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -788,12 +830,12 @@
       <span class="zz-spine" aria-hidden="true"></span>
       <div class="zz-item zz-l" style="--c:#8A4F6B" role="listitem">
         <span class="zz-dot" aria-hidden="true"></span>
-        <div class="zz-yrs">2025&ndash;now</div>
+        <div class="zz-yrs">Sep &rsquo;26 &ndash; now</div>
         <div class="zz-card" tabindex="0" aria-expanded="false">
           <div class="zz-org">Early-stage startup</div>
           <div class="zz-role">Fractional COO</div>
           <div class="zz-head">Preparing and running a capital raise</div>
-          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Early-stage startup, current &middot; Startups</div><ul>
+          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Early-stage startup, Sydney, Sep &rsquo;26 &ndash; now &middot; Startups</div><ul>
           <li>Helping the founding team prepare and run its capital raise.</li>
         </ul></div></div>
           <span class="zz-hint" aria-hidden="true"><span class="zz-hh">Hover for details</span><span class="zz-ht">Tap for details</span></span>
@@ -801,12 +843,12 @@
       </div>
       <div class="zz-item zz-r" style="--c:#8A4F6B" role="listitem">
         <span class="zz-dot" aria-hidden="true"></span>
-        <div class="zz-yrs">2024&ndash;2025</div>
+        <div class="zz-yrs">Dec &rsquo;24 &ndash; Aug &rsquo;25</div>
         <div class="zz-card" tabindex="0" aria-expanded="false">
           <div class="zz-org">Zientte</div>
           <div class="zz-role">Strategy Manager | UCLA MBA Capstone</div>
           <div class="zz-head">5-year US market-entry plan</div>
-          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Zientte, Los Angeles, 2024&ndash;2025 &middot; Startups</div><ul>
+          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Zientte, Los Angeles, Dec &rsquo;24 &ndash; Aug &rsquo;25 &middot; Startups</div><ul>
           <li>Developed a 5-year U.S. market-entry plan projecting $3.2M annual revenue and 25% net margin by Year 5.</li>
           <li>Built financial and scenario models: NPV of $401K at a 10% discount rate, IRR of 38.9%, cash-flow breakeven in Year 5.</li>
           <li>Researched Florida's premium furniture segment (SAM &asymp; $280M, SOM &asymp; $6.2M) to target geographies and segments.</li>
@@ -816,12 +858,12 @@
       </div>
       <div class="zz-item zz-l" style="--c:#3E5C8A" role="listitem">
         <span class="zz-dot" aria-hidden="true"></span>
-        <div class="zz-yrs">2017&ndash;2021 &middot; 2022&ndash;2025</div>
+        <div class="zz-yrs">Oct &rsquo;17 &ndash; Dec &rsquo;20 &middot; Jul &rsquo;22 &ndash; Dec &rsquo;25</div>
         <div class="zz-card" tabindex="0" aria-expanded="false">
           <div class="zz-org">Atlassian</div>
-          <div class="zz-role">Commercial Insights Lead | Head of BI</div>
+          <div class="zz-role">Commercial Insights Lead | Principal Data Scientist</div>
           <div class="zz-head">Insight to the CEO on a $5.2B revenue base</div>
-          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Atlassian, Sydney, 2017&ndash;2021 and 2022&ndash;2025 &middot; Technology</div><ul>
+          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Atlassian, Sydney, Oct &rsquo;17 &ndash; Dec &rsquo;20 (via Analytics8 and Accenture) and Jul &rsquo;22 &ndash; Dec &rsquo;25 &middot; Technology</div><ul>
           <li>Delivered commercial insight to the CEO and Exec Ops on $10M+ variances and 20% YoY growth across a $5.2B revenue base.</li>
           <li>Advised Corporate Development on acquisition targeting up to $500M via competitive intelligence, CLV and churn modelling.</li>
           <li>Built the BI Centre of Excellence, embedding self-serve tooling and governance that delivered $1.5M+ in impact.</li>
@@ -831,27 +873,42 @@
       </div>
       <div class="zz-item zz-r" style="--c:#1F6F6F" role="listitem">
         <span class="zz-dot" aria-hidden="true"></span>
-        <div class="zz-yrs">2016&ndash;2022</div>
+        <div class="zz-yrs">May &rsquo;19 &ndash; Jun &rsquo;22</div>
         <div class="zz-card" tabindex="0" aria-expanded="false">
           <div class="zz-org">Accenture</div>
           <div class="zz-role">Digital Strategy Manager</div>
           <div class="zz-head">$1M+ a year of programmes at ~40% margin</div>
-          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Accenture, Sydney, 2016&ndash;2022 &middot; Consulting</div><ul>
+          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Accenture, Sydney, May &rsquo;19 &ndash; Jun &rsquo;22 &middot; Consulting</div><ul>
           <li>Accountable for $1M+ annual analytics and digital transformation programs at ~40% margin for enterprise clients.</li>
           <li>Advised C-suite and business leaders on data strategy, customer insight and digital transformation.</li>
           <li>Led global teams delivering data and analytics modernisation on Azure, AWS and Snowflake.</li>
-        </ul></div></div>
-          <span class="zz-hint" aria-hidden="true"><span class="zz-hh">Hover for details</span><span class="zz-ht">Tap for details</span></span>
+        </ul><div class="zz-cl"><div class="zz-clk">Clients (3)</div><ul class="zz-chips"><li class="zz-chip" title="Atlassian, Sydney, 2019&ndash;22"><b>Atlassian</b><span>2019&ndash;22</span></li><li class="zz-chip" title="Alinta Energy, 2021"><b>Alinta Energy</b><span>2021</span></li><li class="zz-chip" title="Transport NSW, Sydney, 2019"><b>Transport NSW</b><span>2019</span></li></ul></div></div></div>
+          <span class="zz-hint" aria-hidden="true"><span class="zz-cc">3 clients &middot; </span><span class="zz-hh">Hover for details</span><span class="zz-ht">Tap for details</span></span>
         </div>
       </div>
-      <div class="zz-item zz-l" style="--c:#A9762C" role="listitem">
+      <div class="zz-item zz-l" style="--c:#1F6F6F" role="listitem">
         <span class="zz-dot" aria-hidden="true"></span>
-        <div class="zz-yrs">2014&ndash;2016</div>
+        <div class="zz-yrs">Jun &rsquo;16 &ndash; May &rsquo;19</div>
+        <div class="zz-card" tabindex="0" aria-expanded="false">
+          <div class="zz-org">Analytics8</div>
+          <div class="zz-role">Senior Consultant</div>
+          <div class="zz-head">Data and analytics delivery for 7 enterprise clients</div>
+          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Analytics8, Sydney, Jun &rsquo;16 &ndash; May &rsquo;19 &middot; Consulting</div><ul>
+          <li>Delivered data platform, BI and analytics engagements across financial services, building materials, technology, property and automotive software.</li>
+          <li>Led Atlassian&rsquo;s enterprise Tableau rollout, with the architecture and governance framework for 2,000 creator licences.</li>
+          <li>Built a Customer360 platform on Snowflake and Talend for Lonsec.</li>
+        </ul><div class="zz-cl"><div class="zz-clk">Clients (7)</div><ul class="zz-chips"><li class="zz-chip" title="Atlassian, Sydney, 2017&ndash;18"><b>Atlassian</b><span>2017&ndash;18</span></li><li class="zz-chip" title="GPT, Sydney, 2019"><b>GPT</b><span>2019</span></li><li class="zz-chip" title="Infomedia, Sydney, 2018&ndash;19"><b>Infomedia</b><span>2018&ndash;19</span></li><li class="zz-chip" title="Lonsec, Sydney, 2018"><b>Lonsec</b><span>2018</span></li><li class="zz-chip" title="Eclipx, Sydney, 2018"><b>Eclipx</b><span>2018</span></li><li class="zz-chip" title="Boral, Sydney, 2016&ndash;17"><b>Boral</b><span>2016&ndash;17</span></li><li class="zz-chip" title="Perpetual Investments, Sydney, 2016"><b>Perpetual Investments</b><span>2016</span></li></ul></div></div></div>
+          <span class="zz-hint" aria-hidden="true"><span class="zz-cc">7 clients &middot; </span><span class="zz-hh">Hover for details</span><span class="zz-ht">Tap for details</span></span>
+        </div>
+      </div>
+      <div class="zz-item zz-r" style="--c:#A9762C" role="listitem">
+        <span class="zz-dot" aria-hidden="true"></span>
+        <div class="zz-yrs">Oct &rsquo;14 &ndash; Jun &rsquo;16</div>
         <div class="zz-card" tabindex="0" aria-expanded="false">
           <div class="zz-org">Humm (previously Flexigroup)</div>
-          <div class="zz-role">Business Intelligence Manager</div>
+          <div class="zz-role">Head of BI</div>
           <div class="zz-head">~$1M data strategy; loss ratio down 0.2%</div>
-          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Humm (previously Flexigroup), Sydney, 2014&ndash;2016 &middot; Financial services</div><ul>
+          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Humm (previously Flexigroup), Sydney, Oct &rsquo;14 &ndash; Jun &rsquo;16 &middot; Financial services</div><ul>
           <li>Secured executive sponsorship for a ~$1M modern data strategy and built the transformation business case.</li>
           <li>Implemented a federated cloud data platform with a single source of truth across finance, sales, ops and customer data.</li>
           <li>Reduced loss ratio by 0.2% through unified, high-quality performance insight.</li>
@@ -859,33 +916,32 @@
           <span class="zz-hint" aria-hidden="true"><span class="zz-hh">Hover for details</span><span class="zz-ht">Tap for details</span></span>
         </div>
       </div>
-      <div class="zz-item zz-r" style="--c:#A9762C" role="listitem">
+      <div class="zz-item zz-l" style="--c:#A9762C" role="listitem">
         <span class="zz-dot" aria-hidden="true"></span>
-        <div class="zz-yrs">2013&ndash;2014</div>
+        <div class="zz-yrs">Jun &rsquo;13 &ndash; Sep &rsquo;14</div>
         <div class="zz-card" tabindex="0" aria-expanded="false">
           <div class="zz-org">Westpac</div>
           <div class="zz-role">Senior MIS Analyst, Core Banking Operations &ndash; Retail</div>
           <div class="zz-head">MIS reporting across retail banking, risk and fraud</div>
-          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Westpac, Australia, 2013&ndash;2014 &middot; Financial services</div><ul>
+          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Westpac, Sydney, Jun &rsquo;13 &ndash; Sep &rsquo;14 &middot; Financial services</div><ul>
           <li>Owned MIS reporting and analytics for customer account services, retail banking, operational risk, fraud and compliance.</li>
           <li>Consolidated operational data and performance metrics across those functions.</li>
         </ul></div></div>
           <span class="zz-hint" aria-hidden="true"><span class="zz-hh">Hover for details</span><span class="zz-ht">Tap for details</span></span>
         </div>
       </div>
-      <div class="zz-item zz-l" style="--c:#1F6F6F" role="listitem">
+      <div class="zz-item zz-r" style="--c:#1F6F6F" role="listitem">
         <span class="zz-dot" aria-hidden="true"></span>
-        <div class="zz-yrs">2006&ndash;2012</div>
+        <div class="zz-yrs">Dec &rsquo;06 &ndash; Jun &rsquo;13</div>
         <div class="zz-card" tabindex="0" aria-expanded="false">
           <div class="zz-org">Capgemini</div>
           <div class="zz-role">Senior Consultant, Financial Services Global Business Unit</div>
           <div class="zz-head">Enterprise data platforms for BFSI clients, $500M+ impact</div>
-          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Capgemini, India, Hong Kong, New Zealand and Australia, 2006&ndash;2012 &middot; Consulting</div><ul>
+          <div class="zz-more"><div class="zz-in"><div class="zz-meta">Capgemini, India, Hong Kong, New Zealand and Australia, Dec &rsquo;06 &ndash; Jun &rsquo;13 &middot; Consulting</div><ul>
           <li>Led cross-border teams delivering enterprise data platforms, pipelines and analytics for BFSI clients, with $500M+ in measurable business impact from data investments.</li>
           <li>Advised executives on data strategy and governance aligned to financial and operational objectives.</li>
-          <li>Engagements included CoverMore, Inland Revenue NZ, NSW Public Service Commission, New York Life, AXA Hong Kong, Bank of Finland, BB&amp;T and Daiwa Securities &mdash; full detail on the <a href="#projects">Projects section</a>.</li>
-        </ul></div></div>
-          <span class="zz-hint" aria-hidden="true"><span class="zz-hh">Hover for details</span><span class="zz-ht">Tap for details</span></span>
+        </ul><div class="zz-cl"><div class="zz-clk">Clients (12)</div><ul class="zz-chips"><li class="zz-chip" title="CoverMore Travel Insurance, Sydney, 2013"><b>CoverMore Travel Insurance</b><span>2013</span></li><li class="zz-chip" title="Public Service Commission NSW, Sydney, 2012&ndash;13"><b>Public Service Commission NSW</b><span>2012&ndash;13</span></li><li class="zz-chip" title="Lendlease, Sydney, 2012"><b>Lendlease</b><span>2012</span></li><li class="zz-chip" title="Inland Revenue NZ, Wellington, 2012"><b>Inland Revenue NZ</b><span>2012</span></li><li class="zz-chip" title="Flexigroup, Sydney, 2011&ndash;12"><b>Flexigroup</b><span>2011&ndash;12</span></li><li class="zz-chip" title="NSW Dept of Premier and Cabinet, Sydney, 2011"><b>NSW Dept of Premier and Cabinet</b><span>2011</span></li><li class="zz-chip" title="SP AusNet, Melbourne, 2011"><b>SP AusNet</b><span>2011</span></li><li class="zz-chip" title="Bank of Finland (S-Bank), Helsinki, 2010&ndash;11"><b>Bank of Finland (S-Bank)</b><span>2010&ndash;11</span></li><li class="zz-chip" title="New York Life Insurance, New Delhi, 2010"><b>New York Life Insurance</b><span>2010</span></li><li class="zz-chip" title="AXA Life Insurance, Hong Kong, 2010"><b>AXA Life Insurance</b><span>2010</span></li><li class="zz-chip" title="BB&amp;T Bank, India, 2009&ndash;10"><b>BB&amp;T Bank</b><span>2009&ndash;10</span></li><li class="zz-chip" title="Daiwa Securities Global Asset Services, Dublin, 2006&ndash;09"><b>Daiwa Securities Global Asset Services</b><span>2006&ndash;09</span></li></ul></div></div></div>
+          <span class="zz-hint" aria-hidden="true"><span class="zz-cc">12 clients &middot; </span><span class="zz-hh">Hover for details</span><span class="zz-ht">Tap for details</span></span>
         </div>
       </div>
     </div>
@@ -1739,13 +1795,11 @@
       <h2>What that adds up to</h2>
     </div>
     <div class="num-grid">
-      <div class="num-cell"><div class="num">20 yrs</div><div class="label">Across technology, consulting and financial services, 2006 to now</div></div>
-      <div class="num-cell"><div class="num">17</div><div class="label">Client organisations served as a consultant, through Capgemini and Accenture</div></div>
+      <div class="num-cell"><div class="num">17</div><div class="label">Organisations served as a consultant, through Capgemini and Accenture</div></div>
       <div class="num-cell"><div class="num">8</div><div class="label">Countries with clients and teams: Australia, New Zealand, India, Hong Kong, Finland, Ireland, the USA and Papua New Guinea</div></div>
       <div class="num-cell"><div class="num">10+</div><div class="label">Industries, from banking, insurance and securities to energy, government, retail and tech</div></div>
+      <div class="num-cell"><div class="num">~3 yrs</div><div class="label">Longest single consulting engagement, for a global securities and investment banking firm</div></div>
       <div class="num-cell"><div class="num">$900M</div><div class="label">Largest programme: a national tax and revenue transformation, where I led the data migration</div></div>
-      <div class="num-cell"><div class="num">~3 yrs</div><div class="label">Longest single client engagement, for a global securities and investment banking firm</div></div>
-      <div class="num-cell"><div class="num">$5.2B</div><div class="label">Largest revenue base reported on, monthly to the CEO and Exec Ops</div></div>
       <div class="num-cell"><div class="num">$500M+</div><div class="label">Measurable business impact from data investments for banking and insurance clients</div></div>
       <div class="num-cell"><div class="num">$5M+</div><div class="label">In data platform and transformation programmes led hands-on across nine engagements</div></div>
     </div>
@@ -1756,7 +1810,7 @@
 <section class="block" id="background">
   <div class="wrap">
     <div class="block-head">
-      <h2>Beyond the R&eacute;sum&eacute;</h2>
+      <h2>Learning, Giving and Doing</h2>
       <p>Education, certifications, community work, tools and interests. Open a panel to explore.</p>
     </div>
     <div class="xp">
@@ -1802,7 +1856,7 @@
       </div>
       <div class="xpn" id="certifications" style="--c:#A9762C">
         <button type="button" class="xph" aria-expanded="false" aria-controls="xpb-certifications">
-          <span class="xpi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-3 5 3-1.5-7.5"/></svg></span><span class="xpc">5</span><span class="xpl">Certifications</span>
+          <span class="xpi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-3 5 3-1.5-7.5"/></svg></span><span class="xpc">8</span><span class="xpl">Certifications</span>
         </button>
         <div class="xpb" id="xpb-certifications" role="region" aria-label="Certifications">
           <h3 class="xpt">Certifications</h3>
@@ -1811,19 +1865,31 @@
             <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M12 6.2l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 8.3l2-.3z"/><path d="M8.6 13.4 7.5 21l4.5-2.4 4.5 2.4-1.1-7.6"/></svg></div>
             <div class="edu-school">Certified Data Visualization</div>
             <div class="edu-degree">Stephen Few, Perceptual Edge</div>
-            <div class="edu-year">Certification</div>
+            <div class="edu-year">2017</div>
           </div>
           <div class="edu-card cert-card" style="--edu-accent:#1F6F6F;">
             <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M12 6.2l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 8.3l2-.3z"/><path d="M8.6 13.4 7.5 21l4.5-2.4 4.5 2.4-1.1-7.6"/></svg></div>
             <div class="edu-school">Certified Data Vault Data Modeller</div>
             <div class="edu-degree">CDVDM</div>
-            <div class="edu-year">Certification</div>
+            <div class="edu-year">2017</div>
           </div>
           <div class="edu-card cert-card" style="--edu-accent:#1F6F6F;">
             <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M12 6.2l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 8.3l2-.3z"/><path d="M8.6 13.4 7.5 21l4.5-2.4 4.5 2.4-1.1-7.6"/></svg></div>
             <div class="edu-school">Tableau Desktop Certified Associate</div>
             <div class="edu-degree">Tableau</div>
-            <div class="edu-year">Certification</div>
+            <div class="edu-year">2017</div>
+          </div>
+          <div class="edu-card cert-card" style="--edu-accent:#1F6F6F;">
+            <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M12 6.2l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 8.3l2-.3z"/><path d="M8.6 13.4 7.5 21l4.5-2.4 4.5 2.4-1.1-7.6"/></svg></div>
+            <div class="edu-school">Tableau Server Certified Associate</div>
+            <div class="edu-degree">Tableau</div>
+            <div class="edu-year">2017</div>
+          </div>
+          <div class="edu-card cert-card" style="--edu-accent:#1F6F6F;">
+            <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M12 6.2l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 8.3l2-.3z"/><path d="M8.6 13.4 7.5 21l4.5-2.4 4.5 2.4-1.1-7.6"/></svg></div>
+            <div class="edu-school">Corporate Governance Specialisation</div>
+            <div class="edu-degree">UCLA Anderson School of Management</div>
+            <div class="edu-year">2024&ndash;25</div>
           </div>
           <div class="edu-card cert-card" style="--edu-accent:#1F6F6F;">
             <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M12 6.2l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 8.3l2-.3z"/><path d="M8.6 13.4 7.5 21l4.5-2.4 4.5 2.4-1.1-7.6"/></svg></div>
@@ -1833,28 +1899,34 @@
           </div>
           <div class="edu-card cert-card" style="--edu-accent:#1F6F6F;">
             <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M12 6.2l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 8.3l2-.3z"/><path d="M8.6 13.4 7.5 21l4.5-2.4 4.5 2.4-1.1-7.6"/></svg></div>
-            <div class="edu-school">Corporate Governance Specialisation</div>
-            <div class="edu-degree">UCLA Anderson School of Management</div>
-            <div class="edu-year">2024&ndash;25</div>
+            <div class="edu-school">Advanced Claude Chat</div>
+            <div class="edu-degree">Build Club</div>
+            <div class="edu-year">2026</div>
+          </div>
+          <div class="edu-card cert-card" style="--edu-accent:#1F6F6F;">
+            <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M12 6.2l.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 8.3l2-.3z"/><path d="M8.6 13.4 7.5 21l4.5-2.4 4.5 2.4-1.1-7.6"/></svg></div>
+            <div class="edu-school">Advanced Claude Cowork</div>
+            <div class="edu-degree">Build Club</div>
+            <div class="edu-year">2026</div>
           </div>
         </div>
         </div>
       </div>
       <div class="xpn" id="community" style="--c:#8A4F6B">
         <button type="button" class="xph" aria-expanded="false" aria-controls="xpb-community">
-          <span class="xpi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span><span class="xpc">5</span><span class="xpl">Community</span>
+          <span class="xpi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span><span class="xpc">6</span><span class="xpl">Volunteering / Community</span>
         </button>
-        <div class="xpb" id="xpb-community" role="region" aria-label="Community">
-          <h3 class="xpt">Community</h3>
-          <p class="xp-intro">Two decades of giving time and skills to women&rsquo;s empowerment, health, and children&rsquo;s health and education across Australia, Papua New Guinea and India.</p><div class="xp-geo"><div class="xp-gc"><div class="xp-gdot" style="--n:1"><span>1</span></div><div class="xp-gn">Papua New Guinea</div><ul><li title="Turned medical, water and safety data from outreach centres in remote and underserved parts of Papua New Guinea into insight on the UN Sustainable Development Goals: good health, clean water and sanitation, gender equality, zero hunger and children&rsquo;s health. Supported board-level decisions with advisory, data insights and performance reporting."><b>Analytics Consultant (Pro Bono)</b><small>Oil Search Foundation &middot; 2017&ndash;2018</small></li></ul></div><div class="xp-gc"><div class="xp-gdot" style="--n:2"><span>2</span></div><div class="xp-gn">Australia</div><ul><li title="Designed and ran financial literacy workshops helping high school students read financial statements and understand business performance."><b>Volunteer Financial Literacy Educator</b><small>Waverley College &middot; 2023</small></li><li title="Helped with maintenance, gardening and library support to improve the college&rsquo;s learning environment and facilities."><b>Community Support Volunteer</b><small>Australian Aboriginal Women&rsquo;s College &middot; 2014</small></li></ul></div><div class="xp-gc"><div class="xp-gdot" style="--n:2"><span>2</span></div><div class="xp-gn">India</div><ul><li title="Took part in corporate volunteering for children&rsquo;s schools, supporting local education and social impact programmes."><b>Community Volunteer, WeKare Program</b><small>Kanbay / Capgemini &middot; 2006&ndash;2010</small></li><li title="Volunteered at schools for underprivileged children and in community welfare work with disadvantaged communities."><b>Student Volunteer</b><small>National Service Scheme (NSS) &middot; 2002&ndash;2006</small></li></ul></div></div>
+        <div class="xpb" id="xpb-community" role="region" aria-label="Volunteering / Community">
+          <h3 class="xpt">Volunteering / Community</h3>
+          <p class="xp-intro">Two decades of giving time and skills to women&rsquo;s empowerment, health, and children&rsquo;s health and education across Australia, Papua New Guinea and India, starting with student leadership at engineering college.</p><p class="cv-hint"><span class="pf-hover">Hover a card to see what I did</span><span class="pf-touch">Tap a card to see what I did</span></p><ol class="cv-grid"><li class="cv-card" tabindex="0" role="button" aria-pressed="false"><div class="cv-in"><div class="cv-f"><div class="cv-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.7 2.2 3 5 3s5-1.3 5-3V9"/></svg></div><div class="xv-yr">2023</div><div class="xv-role">Volunteer Financial Literacy Educator</div><div class="xv-org">Waverley College &middot; Sydney</div><div class="cv-cause">Education</div></div><div class="cv-b"><div class="cv-bt">Volunteer Financial Literacy Educator</div><div class="xv-org">Waverley College &middot; Sydney</div><p class="xv-desc">Designed and ran financial literacy workshops helping high school students read financial statements and understand business performance.</p></div></div></li><li class="cv-card" tabindex="0" role="button" aria-pressed="false"><div class="cv-in"><div class="cv-f"><div class="cv-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><div class="xv-yr">2017&ndash;18</div><div class="xv-role">Analytics Consultant (Pro Bono)</div><div class="xv-org">Oil Search Foundation &middot; Papua New Guinea</div><div class="cv-cause">Health</div></div><div class="cv-b"><div class="cv-bt">Analytics Consultant (Pro Bono)</div><div class="xv-org">Oil Search Foundation &middot; Papua New Guinea</div><p class="xv-desc">Turned medical, water and safety data from remote outreach centres into insight on the UN Sustainable Development Goals, and supported board-level decisions with advisory and performance reporting.</p></div></div></li><li class="cv-card" tabindex="0" role="button" aria-pressed="false"><div class="cv-in"><div class="cv-f"><div class="cv-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg></div><div class="xv-yr">2014</div><div class="xv-role">Community Support Volunteer</div><div class="xv-org">Australian Aboriginal Women&rsquo;s College &middot; Sydney</div><div class="cv-cause">Women&rsquo;s empowerment</div></div><div class="cv-b"><div class="cv-bt">Community Support Volunteer</div><div class="xv-org">Australian Aboriginal Women&rsquo;s College &middot; Sydney</div><p class="xv-desc">Helped with maintenance, gardening and library support to improve the college&rsquo;s learning environment and facilities.</p></div></div></li><li class="cv-card" tabindex="0" role="button" aria-pressed="false"><div class="cv-in"><div class="cv-f"><div class="cv-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V8l8-4 8 4v11"/><path d="M9 19v-5h6v5"/></svg></div><div class="xv-yr">2006&ndash;10</div><div class="xv-role">Community Volunteer, WeKare</div><div class="xv-org">Kanbay / Capgemini &middot; India</div><div class="cv-cause">Children&rsquo;s education</div></div><div class="cv-b"><div class="cv-bt">Community Volunteer, WeKare</div><div class="xv-org">Kanbay / Capgemini &middot; India</div><p class="xv-desc">Corporate volunteering for children&rsquo;s schools, supporting local education and social impact programmes.</p></div></div></li><li class="cv-card" tabindex="0" role="button" aria-pressed="false"><div class="cv-in"><div class="cv-f"><div class="cv-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></div><div class="xv-yr">2003&ndash;06</div><div class="xv-role">President, EESA</div><div class="xv-org">RCOEM &middot; Nagpur</div><div class="cv-cause">Leadership</div></div><div class="cv-b"><div class="cv-bt">President, EESA</div><div class="xv-org">RCOEM &middot; Nagpur</div><span class="xp-steps"><i>2003&ndash;04 &middot; Treasurer</i><i>2004&ndash;05 &middot; Vice President</i><i>2005&ndash;06 &middot; President</i></span><p class="xv-desc">Liaison between the college office and students, ran events and fundraising, and was chief spokesperson for the Electrical Engineering department.</p></div></div></li><li class="cv-card" tabindex="0" role="button" aria-pressed="false"><div class="cv-in"><div class="cv-f"><div class="cv-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l3 3 7-7"/><circle cx="12" cy="12" r="9"/></svg></div><div class="xv-yr">2002&ndash;06</div><div class="xv-role">Student Volunteer</div><div class="xv-org">National Service Scheme (NSS) &middot; India</div><div class="cv-cause">Community welfare</div></div><div class="cv-b"><div class="cv-bt">Student Volunteer</div><div class="xv-org">National Service Scheme (NSS) &middot; India</div><p class="xv-desc">Volunteered at schools for underprivileged children and in community welfare work with disadvantaged communities.</p></div></div></li></ol>
         </div>
       </div>
       <div class="xpn" id="techstack" style="--c:#3E5C8A">
         <button type="button" class="xph" aria-expanded="false" aria-controls="xpb-techstack">
-          <span class="xpi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="xpc">26</span><span class="xpl">Tech stack</span>
+          <span class="xpi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="xpc">26</span><span class="xpl">Tech Skills</span>
         </button>
-        <div class="xpb" id="xpb-techstack" role="region" aria-label="Tech stack">
-          <h3 class="xpt">Tech stack</h3>
+        <div class="xpb" id="xpb-techstack" role="region" aria-label="Tech Skills">
+          <h3 class="xpt">Tech Skills</h3>
           <div class="xp-tmap"><div class="xp-tg" style="flex:7"><div class="xp-tgh">Visualisation &amp; BI<span>7</span></div><div class="xp-tgc"><span>Tableau</span><span>Looker</span><span>ThoughtSpot</span><span>Business Objects</span><span>QlikView</span><span>Microsoft SSRS</span><span>Microsoft SSAS</span></div></div><div class="xp-tg" style="flex:5"><div class="xp-tgh">Cloud data platforms &amp; integration<span>5</span></div><div class="xp-tgc"><span>Snowflake</span><span>Databricks</span><span>Microsoft Azure</span><span>AWS</span><span>Talend</span></div></div><div class="xp-tg" style="flex:7"><div class="xp-tgh">Databases &amp; languages<span>7</span></div><div class="xp-tgc"><span>SQL / T-SQL</span><span>SQL Server / Azure SQL</span><span>Oracle</span><span>Informix</span><span>SAS &amp; SAS Enterprise Guide</span><span>Unix shell scripting</span><span>C</span></div></div><div class="xp-tg" style="flex:7"><div class="xp-tgh">Modelling &amp; data management<span>7</span></div><div class="xp-tgc"><span>Data Vault modelling</span><span>Kimball dimensional modelling</span><span>ERwin</span><span>UML</span><span>Jira</span><span>SharePoint</span><span>MS Visio &amp; Project</span></div></div></div>
         </div>
       </div>
@@ -2239,6 +2311,15 @@ document.querySelector('.wm-name').addEventListener('click',function(e){ e.preve
     function t(){ var on=!c.classList.contains('flipped'); document.querySelectorAll('.pf-card.flipped').forEach(function(o){ if(o!==c){o.classList.remove('flipped'); o.setAttribute('aria-pressed','false');} }); c.classList.toggle('flipped',on); c.setAttribute('aria-pressed',on?'true':'false'); }
     c.addEventListener('click',function(e){ if(e.target.closest('a')) return; if(window.matchMedia('(hover:hover)').matches) return; t(); });
     c.addEventListener('keydown',function(e){ if((e.key==='Enter'||e.key===' ') && !e.target.closest('a')){ e.preventDefault(); t(); } });
+  });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.cv-card').forEach(function(c){
+    function t(){ var on=!c.classList.contains('flipped'); document.querySelectorAll('.cv-card.flipped').forEach(function(o){ if(o!==c){o.classList.remove('flipped'); o.setAttribute('aria-pressed','false');} }); c.classList.toggle('flipped',on); c.setAttribute('aria-pressed',on?'true':'false'); }
+    c.addEventListener('click',function(){ if(window.matchMedia('(hover:hover)').matches) return; t(); });
+    c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); t(); } });
   });
 })();
 </script>
