@@ -76,7 +76,9 @@
   /* Hero */
   .hero{padding:92px 32px 68px;}
   @media (max-width:640px){ .hero{padding-left:20px; padding-right:20px;} }
-  .hero-greeting{font-family:var(--serif); font-weight:500; font-size:clamp(2.6rem,5.6vw,4.4rem); color:var(--ink); margin:0 0 22px; line-height:1.08; letter-spacing:-0.015em;}
+  .hero-greeting{font-family:var(--serif); font-weight:500; font-size:clamp(2.6rem,5.6vw,4.4rem); color:var(--ink); margin:0 0 6px; line-height:1.08; letter-spacing:-0.015em;}
+  .hero-say{font-family:var(--mono); font-size:0.78rem; color:var(--ink-soft); margin:0 0 22px; letter-spacing:.02em;}
+  .hero-say b{font-weight:500; color:var(--brass-deep);}
   .hero-greeting .accent-name{color:var(--brass-deep); font-style:italic;}
   .hero h1{font-family:var(--serif); font-weight:500; font-size:clamp(2.1rem,4.6vw,3.5rem); line-height:1.12; max-width:22ch; margin:0 0 26px; letter-spacing:-0.01em;}
   .hero .lede{max-width:64ch; font-size:1.1rem; color:var(--ink-soft); margin:0 0 30px;}
@@ -784,6 +786,7 @@
   .cv-bt{font-weight:500; font-size:0.86rem; color:var(--c); line-height:1.3;}
   .cv-b .xv-desc{font-size:0.8rem;}
   @media (prefers-reduced-motion: reduce){ .cv-in{transition:none;} }
+  .c-say{font-family:var(--mono); font-size:0.8em; color:var(--ink-soft); margin-left:4px;}
 </style>
 <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -811,6 +814,7 @@
 
 <section class="hero wrap" id="about">
   <div class="hero-greeting">G&rsquo;day, I'm <span class="accent-name">Sourav</span>.</div>
+  <div class="hero-say" aria-label="Pronounced SAW-ruv">Sourav is pronounced <b>SAW-r&#468;v</b></div>
   <div class="lens">
     <div class="lens-col lens-a"><div class="lens-k">I ADVISE</div><h1 class="lens-h">Executives and senior leaders on transforming their businesses through AI governance, decision intelligence and information maturity.</h1><div class="lens-who">Advisory for founders and senior leaders</div></div>
     <div class="lens-col lens-b"><div class="lens-k">I BUILD</div><p class="lens-h">The analytics capabilities, teams, products and services that turn data into decisions, and decisions into results.</p><div class="lens-who">Business Intelligence, Governance, Analytics and Data Science</div></div>
@@ -2067,6 +2071,7 @@
       <h2>Let's talk more about how I can help you</h2>
     </div>
     <ul class="contact-list">
+      <li><span class="c-label">Name</span><span>Sourav Dasgupta <span class="c-say">(SAW-r&#468;v DAS-goop-ta)</span></span></li>
       <li><span class="c-label">Location</span><span>Sydney, Australia</span></li>
       <li><span class="c-label">LinkedIn</span><a class="c-li" href="https://www.linkedin.com/in/dasgupta-sourav/" target="_blank" rel="noopener" aria-label="Sourav Dasgupta on LinkedIn"><img src="data:image/png;base64,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" alt="LinkedIn"></a></li>
       <li><span class="c-label">Email</span><a href="mailto:sourav.d.gupta@gmail.com">sourav.d.gupta@gmail.com</a></li>
